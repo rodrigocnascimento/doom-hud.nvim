@@ -50,7 +50,6 @@ end
 -- end
 
 function M.get_config()
-	-- Paleta de cores agressiva do Doom HUD
 	local theme = {
 		normal = {
 			a = { bg = colors.orange or "#D9896C", fg = "#1A1A1A", bold = true },
@@ -65,38 +64,36 @@ function M.get_config()
 	return {
 		options = {
 			theme = theme,
-			-- Usando os blocos pixelados clássicos escapados nativamente para não quebrar a API
-			component_separators = { left = "ii", right = "ii" },
-			section_separators = { left = "--", right = "--" },
+			component_separators = { left = "┨", right = "┠" },
+			section_separators = { left = "▓▒░", right = "░▒▓" }, -- Blocos de densidade clássicos
 			globalstatus = true,
 			disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
 		},
 		sections = {
-			lualine_a = {
+			lualine_a = { {
+				"mode",
+				fmt = function(str)
+					return "󰊓 DOOM:" .. str:upper()
+				end,
+			} },
+			lualine_b = { { "branch", icon = "" }, "diff" },
+			lualine_c = { { "filename", path = 1 } },
+			lualine_x = {
 				{
-					"mode",
-					fmt = function(str)
-						return "󰊓 " .. str:upper()
+					dynamic_health,
+					color = function()
+						return { fg = colors.green or "#A65B4B", bold = true }
 					end,
 				},
+				{ doomguy_face, color = { fg = colors.gold or "#F2D0A7", bg = "#2D2D2D", bold = true } },
 			},
-			lualine_b = {
-				{ "branch", icon = "" },
-				{ "diff", colored = true },
-			},
-			lualine_c = {
-				{ "filename", file_status = true, path = 1 },
-			},
-			lualine_x = {
-				-- O Doomguy centralizado cuidando dos status
-				{ doomguy_face, color = { fg = "#F2D0A7", bg = "#2D2D2D", bold = true } },
-			},
-			lualine_y = {
-				{ dynamic_armor, color = { fg = "#D9896C", bold = true } },
-			},
-			lualine_z = {
-				{ ammo_counter, color = { fg = "#A65B4B", bg = "#F2D0A7", bold = true } },
-			},
+			lualine_y = { { ammo_counter, color = { fg = colors.blue or "#594F57", bold = true } } },
+			lualine_z = { {
+				"progress",
+				fmt = function(str)
+					return "󱠇 ARMOR: " .. str
+				end,
+			} },
 		},
 	}
 end
