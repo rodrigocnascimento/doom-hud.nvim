@@ -35,14 +35,15 @@ function M.apply()
 	--   horizup   = "┻", -- Junção inferior
 	--   horizdown = "┳", -- Junção superior
 	-- }
-	vim.opt.fillchars = {
-		vert = "│",
-		horiz = "─",
-		horizup = "┴",
-		horizdown = "┬",
-		edge = "│",
-		eob = " ", -- Esconde o til (~) nas linhas vazias
-	}
+	-- vim.opt.fillchars = {
+	-- 	vert = "│",
+	-- 	horiz = "─",
+	-- 	horizup = "┴",
+	-- 	horizdown = "┬",
+	-- 	edge = "│",
+	-- 	eob = " ", -- Esconde o til (~) nas linhas vazias
+	-- }
+	vim.o.fillchars = "vert:│,horiz:─,horizup:┴,horizdown:┬,edge:│,eob: "
 	-- Interface do Editor
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("NormalFloat", { fg = colors.fg, bg = colors.bg_surface })
