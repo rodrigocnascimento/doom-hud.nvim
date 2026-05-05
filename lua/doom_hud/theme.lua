@@ -43,7 +43,9 @@ function M.apply()
 	-- 	edge = "│",
 	-- 	eob = " ", -- Esconde o til (~) nas linhas vazias
 	-- }
-	vim.o.fillchars = "vert:│,horiz:─,horizup:┴,horizdown:┬,edge:│,eob: "
+	vim.opt.fillchars = {
+		eob = " ", -- Limpa os tils (~) do final do arquivo
+	}
 	-- Interface do Editor
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("NormalFloat", { fg = colors.fg, bg = colors.bg_surface })
