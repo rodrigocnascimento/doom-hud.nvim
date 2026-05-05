@@ -67,7 +67,7 @@ function M.get_config()
 			theme = theme,
 			-- Usando os blocos pixelados clássicos escapados nativamente para não quebrar a API
 			component_separators = { left = "┃", right = "┃" },
-			section_separators = { left = "▓", right = "▓" },
+			section_separators = { left = "--", right = "--" },
 			globalstatus = true,
 			disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
 		},
