@@ -12,29 +12,32 @@ function M.apply()
 		vim.api.nvim_set_hl(0, group, opts)
 	end
 
-	-- Configuração de caracteres de preenchimento
-	-- Opção avançada com molduras estilo HUD (descomente para usar):
+	-- Fillchars configuration
+	-- Option: uncomment below for DOOM-style HUD borders
+	-- vim.opt.fillchars = {
+	--   horiz     = "-",  -- horizontal line
+	--   horizup   = "+",  -- bottom junction
+	--   horizdown = "+",  -- top junction
+	--   vert      = "|",  -- vertical line
+	--   eob       = " ",  -- hide tildes
+	-- }
 	vim.opt.fillchars = {
-		horiz = "━", -- Divisória horizontal pura
-		horizup = "┻", -- Junção inferior
-		horizdown = "┳", -- Junção superior
-		vert = "┃", -- Divisória vertical pura
-		eob = " ", -- Esconde os tils (~) nas linhas vazias
+		eob = " ", -- clear tildes at end of file
 	}
 
-	-- Interface do Editor
+	-- Editor interface
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("NormalFloat", { fg = colors.fg, bg = colors.bg_surface })
 	hl("CursorLine", { bg = colors.bg_select })
 	hl("Visual", { bg = colors.bg_select, bold = true })
 
-	-- Bordas e Divisores Estilo HUD
+	-- HUD-style borders and dividers
 	hl("LineNr", { fg = colors.muted })
 	hl("CursorLineNr", { fg = colors.gold, bold = true })
 	hl("WinSeparator", { fg = colors.gold, bg = colors.bg })
 	hl("VertSplit", { fg = colors.gold, bg = colors.bg })
 
-	-- Sintaxe (The Rip & Tear Style)
+	-- Syntax (The Rip & Tear Style)
 	hl("Comment", { fg = colors.comment, italic = true })
 	hl("Constant", { fg = colors.orange })
 	hl("String", { fg = colors.orange, italic = true })
@@ -72,4 +75,3 @@ function M.apply()
 end
 
 return M
-

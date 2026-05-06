@@ -1,7 +1,7 @@
 local M = {}
 local colors = require("doom_hud.palette")
 
--- Elemento: Doomguy Face baseada no modo do Vim
+-- Doomguy Face baseada no modo do Vim
 local function doomguy_face()
 	local mode = vim.api.nvim_get_mode().mode
 	if mode == "i" then
@@ -15,7 +15,7 @@ local function doomguy_face()
 	end
 end
 
--- Simulador de Armor (Mapeia o progresso do arquivo de 0 a 100%)
+-- Armor simulator (file progress 0 to 100%)
 local function dynamic_armor()
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")
@@ -23,13 +23,13 @@ local function dynamic_armor()
 	return string.format("ARM:%3d%%", progress)
 end
 
--- Simulador de Munição (Mapeia a coluna atual como balas no pente)
+-- Ammo counter (column position)
 local function ammo_counter()
 	local col = vim.fn.col(".")
 	return string.format("AMO:%03d", col)
 end
 
--- Elemento: Vida calculada dinamicamente via erros de LSP
+-- Health based on LSP errors
 local function dynamic_health()
 	local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 	if errors > 5 then
@@ -56,7 +56,7 @@ function M.get_config()
 	return {
 		options = {
 			theme = theme,
-			component_separators = { left = "|", right = "|" },
+			component_separators = "",
 			section_separators = "",
 			globalstatus = true,
 			disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
