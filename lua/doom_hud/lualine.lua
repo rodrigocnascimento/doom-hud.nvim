@@ -68,7 +68,7 @@ function M.get_config()
 					return " DOOM: " .. str:upper()
 				end,
 			} },
-			lualine_b = { { "branch", icon = "" }, "diff" },
+			lualine_b = { "branch", "diff" },
 			lualine_c = { { "filename", path = 1 } },
 			lualine_x = {
 				{
