@@ -14,15 +14,12 @@ function M.apply()
 
 	-- Configuração de caracteres de preenchimento
 	-- Opção avançada com molduras estilo HUD (descomente para usar):
-	-- vim.opt.fillchars = {
-	--   horiz     = "━", -- Divisória horizontal pura
-	--   horizup   = "┻", -- Junção inferior
-	--   horizdown = "┳", -- Junção superior
-	--   vert      = "┃", -- Divisória vertical pura
-	--   eob       = " ", -- Esconde os tils (~) nas linhas vazias
-	-- }
 	vim.opt.fillchars = {
-		eob = " ", -- Limpa os tils (~) do final do arquivo
+		horiz = "━", -- Divisória horizontal pura
+		horizup = "┻", -- Junção inferior
+		horizdown = "┳", -- Junção superior
+		vert = "┃", -- Divisória vertical pura
+		eob = " ", -- Esconde os tils (~) nas linhas vazias
 	}
 
 	-- Interface do Editor
@@ -75,3 +72,4 @@ function M.apply()
 end
 
 return M
+
