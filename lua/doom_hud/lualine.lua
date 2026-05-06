@@ -2,43 +2,42 @@ local M = {}
 local colors = require("doom_hud.palette")
 
 -- Elemento: Doomguy Face baseada no modo do Vim
--- 1. Detecção dinâmica do Doomguy baseado no Modo de Edição
 local function doomguy_face()
 	local mode = vim.api.nvim_get_mode().mode
 	if mode == "i" then
-		return " 😡 " -- Insert mode: Doomguy metendo bala
+		return "[I]"
 	elseif mode:match("[vV]") then
-		return " 😎 " -- Visual mode: Sorrisinho de canto
+		return "[V]"
 	elseif mode == "R" then
-		return " 💀 " -- Replace mode: Quase morto
+		return "[R]"
 	else
-		return " 🗿 " -- Normal mode: Alerta, olhando pros lados
+		return "[N]"
 	end
 end
 
--- 2. Simulador de Armor (Mapeia o progresso do arquivo de 0 a 100%)
+-- Simulador de Armor (Mapeia o progresso do arquivo de 0 a 100%)
 local function dynamic_armor()
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")
 	local progress = math.floor((current_line / total_lines) * 100)
-	return string.format("󱠇 ARMOR: %3d%%", progress)
+	return string.format("ARM:%3d%%", progress)
 end
 
--- 3. Simulador de Munição (Mapeia a coluna atual como balas no pente)
+-- Simulador de Munição (Mapeia a coluna atual como balas no pente)
 local function ammo_counter()
 	local col = vim.fn.col(".")
-	return string.format("󰊓 AMMO: %03d/200", col)
+	return string.format("AMO:%03d", col)
 end
 
 -- Elemento: Vida calculada dinamicamente via erros de LSP
 local function dynamic_health()
 	local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 	if errors > 5 then
-		return "󰏤 35% [CRITICAL]"
+		return "HLTH:35%"
 	elseif errors > 0 then
-		return "󰏤 72% [WARNING]"
+		return "HLTH:72%"
 	else
-		return "󰏤 100% [HEALTH]"
+		return "HLTH:100%"
 	end
 end
 
@@ -57,8 +56,8 @@ function M.get_config()
 	return {
 		options = {
 			theme = theme,
-			component_separators = { left = "┨", right = "┠" },
-			section_separators = { left = "▓▒░", right = "░▒▓" }, -- Blocos de densidade clássicos
+			component_separators = { left = "|", right = "|" },
+			section_separators = "",
 			globalstatus = true,
 			disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
 		},
@@ -66,10 +65,10 @@ function M.get_config()
 			lualine_a = { {
 				"mode",
 				fmt = function(str)
-					return "󰊓 DOOM:" .. str:upper()
+					return " DOOM: " .. str:upper()
 				end,
 			} },
-			lualine_b = { { "branch", icon = "" }, "diff" },
+			lualine_b = { { "branch", icon = "" }, "diff" },
 			lualine_c = { { "filename", path = 1 } },
 			lualine_x = {
 				{
