@@ -12,40 +12,19 @@ function M.apply()
 		vim.api.nvim_set_hl(0, group, opts)
 	end
 
-	-- Configuração de caracteres de preenchimento (Molduras de Ferro)
+	-- Configuração de caracteres de preenchimento
+	-- Opção avançada com molduras estilo HUD (descomente para usar):
 	-- vim.opt.fillchars = {
-	--   vsep = "█",
-	--   split = "─",
-	--   horiz = "━",
-	--   horizup = "┻",
-	--   horizdown = "┳",
-	--   vert = "┃",
-	-- }
-	-- vim.opt.fillchars = {
-	--   vsep    = " ", -- Espaço vazio se quiser sumir com a linha padrão
-	--   split   = "─",
-	--   horiz   = "━",
-	--   horizup = "┻",
-	--   horizdown = "┳",
-	--   vert    = "┃",
-	-- }
-	-- vim.opt.fillchars = {
-	--   vert      = "┃", -- Divisória vertical pura
 	--   horiz     = "━", -- Divisória horizontal pura
 	--   horizup   = "┻", -- Junção inferior
 	--   horizdown = "┳", -- Junção superior
-	-- }
-	-- vim.opt.fillchars = {
-	-- 	vert = "│",
-	-- 	horiz = "─",
-	-- 	horizup = "┴",
-	-- 	horizdown = "┬",
-	-- 	edge = "│",
-	-- 	eob = " ", -- Esconde o til (~) nas linhas vazias
+	--   vert      = "┃", -- Divisória vertical pura
+	--   eob       = " ", -- Esconde os tils (~) nas linhas vazias
 	-- }
 	vim.opt.fillchars = {
 		eob = " ", -- Limpa os tils (~) do final do arquivo
 	}
+
 	-- Interface do Editor
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("NormalFloat", { fg = colors.fg, bg = colors.bg_surface })
