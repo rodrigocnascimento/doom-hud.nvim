@@ -11,7 +11,14 @@ return {
   priority = 1000,
   dependencies = { "nvim-lualine/lualine.nvim" },
   config = function()
-    require("doom-hud").setup()
+    require("doom_hud").setup()
   end,
 }
 ```
+
+## 🎨 Recursos
+
+- Colorscheme inspirado em DOOM com paleta escura
+- Integração automática com lualine (opcional)
+- Indicadores de vida, armor e munição estilo HUD
+- Doomguy face que muda conforme o modo do Vim
