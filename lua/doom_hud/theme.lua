@@ -12,32 +12,20 @@ function M.apply()
 		vim.api.nvim_set_hl(0, group, opts)
 	end
 
-	-- Fillchars configuration
-	-- Option: uncomment below for DOOM-style HUD borders
-	-- vim.opt.fillchars = {
-	--   horiz     = "-",  -- horizontal line
-	--   horizup   = "+",  -- bottom junction
-	--   horizdown = "+",  -- top junction
-	--   vert      = "|",  -- vertical line
-	--   eob       = " ",  -- hide tildes
-	-- }
 	vim.opt.fillchars = {
-		eob = " ", -- clear tildes at end of file
+		eob = " ",
 	}
 
-	-- Editor interface
 	hl("Normal", { fg = colors.fg, bg = colors.bg })
 	hl("NormalFloat", { fg = colors.fg, bg = colors.bg_surface })
 	hl("CursorLine", { bg = colors.bg_select })
 	hl("Visual", { bg = colors.bg_select, bold = true })
 
-	-- HUD-style borders and dividers
 	hl("LineNr", { fg = colors.muted })
 	hl("CursorLineNr", { fg = colors.gold, bold = true })
 	hl("WinSeparator", { fg = colors.gold, bg = colors.bg })
 	hl("VertSplit", { fg = colors.gold, bg = colors.bg })
 
-	-- Syntax (The Rip & Tear Style)
 	hl("Comment", { fg = colors.comment, italic = true })
 	hl("Constant", { fg = colors.orange })
 	hl("String", { fg = colors.orange, italic = true })
@@ -57,7 +45,6 @@ function M.apply()
 	hl("Include", { fg = colors.red })
 	hl("Type", { fg = colors.gold })
 
-	-- Treesitter
 	hl("@variable", { fg = colors.fg })
 	hl("@keyword", { fg = colors.green, bold = true })
 	hl("@function", { fg = colors.red, bold = true })
@@ -67,7 +54,6 @@ function M.apply()
 	hl("@type", { fg = colors.gold })
 	hl("@comment", { fg = colors.comment, italic = true })
 
-	-- LSP Diagnostics
 	hl("DiagnosticError", { fg = colors.red })
 	hl("DiagnosticWarn", { fg = colors.orange })
 	hl("DiagnosticInfo", { fg = colors.green })
