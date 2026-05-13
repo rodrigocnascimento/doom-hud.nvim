@@ -12,6 +12,12 @@ local M = {
 	-- Utilities
 	muted      = "#5C524D", -- Imp Flesh Brown
 	comment    = "#7A6E67", -- Muted Ash
+  -- Nossas NOVAS cores neon de contraste total (para as letras)
+  text_white  = "#FFFFFF", -- Contraste máximo para o filename e branch
+  text_yellow = "#FFFF00", -- O amarelo do logo 'id' Software (para AR e modo)
+  text_green  = "#00FF00", -- Verde neon puro para o HP
+  text_cyan   = "#00E5FF", -- Ciano neon puro para o AMMO (já estava bom)
+  text_gold   = "#FFD700", -- Dourado neon puro para o AR (Armor)
 }
 
 return M
