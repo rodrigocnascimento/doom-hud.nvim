@@ -1,5 +1,7 @@
 # doom-hud.nvim
 
+![Version](https://img.shields.io/github/v/tag/rodrigocnascimento/doom-hud.nvim?label=version)
+
 Um colorscheme e HUD responsivo para Neovim inspirado na arte clássica de **DOOM (1993)**.
 
 ![DOOM 1993 Vim Screenshot](assets/doom_1993_vim.png)
