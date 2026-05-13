@@ -2,6 +2,8 @@
 
 Um colorscheme e HUD responsivo para Neovim inspirado na arte clássica de **DOOM (1993)**.
 
+![DOOM 1993 Vim Screenshot](assets/doom_1993_vim.png)
+
 ## 📦 Instalação (lazy.nvim)
 
 ```lua
